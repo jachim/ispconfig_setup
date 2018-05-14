@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+apt-get install sudo
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
 echo "set mouse=\"\"" > ~/.vimrc
