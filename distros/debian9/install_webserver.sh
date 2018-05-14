@@ -15,12 +15,11 @@ InstallWebServer() {
 	echo -e "[${green}DONE${NC}]\n"
 	echo -n "Installing PHP and Modules... "
 	# Need to check if soemthing is asked before suppress messages
-	#apt-get -y install php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php7.0-mcrypt php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-zip php7.0-mbstring php7.0-imap php7.0-mcrypt php7.0-snmp php7.0-xmlrpc php7.0-xsl  > /dev/null 2>&1
 	apt-get -y install php7.1 php7.1-common php7.1-gd php7.1-mysql php7.1-imap php7.1-cli php7.1-cgi php-pear php7.1-mcrypt php7.1-curl php7.1-intl php7.1-pspell php7.1-recode php7.1-sqlite3 php7.1-tidy php7.1-xmlrpc php7.1-zip php7.1-mbstring php7.1-imap php7.1-mcrypt php7.1-snmp php7.1-xmlrpc php7.1-xsl php7.1-dev php7.1-bcmath php7.1-fpm php-redis
 	echo -e "[${green}DONE${NC}]\n"
 	echo -n "Installing PHP-FPM"
 	#Need to check if soemthing is asked before suppress messages
-	apt-get -y install php7.0-fpm
+	apt-get -y install php7.1-fpm
 	#Need to check if soemthing is asked before suppress messages
 	a2enmod actions > /dev/null 2>&1 
 	a2enmod proxy_fcgi > /dev/null 2>&1 
@@ -74,7 +73,7 @@ InstallWebServer() {
 	echo -e "[${green}DONE${NC}]\n"
   
     echo -n "Install PHP Opcode Cache "	
-    apt-get -yqq install php7.0-opcache php-apcu > /dev/null 2>&1
+    apt-get -yqq install php7.1-opcache php-apcu > /dev/null 2>&1
 	service apache2 restart > /dev/null 2>&1
 	echo -e "[${green}DONE${NC}]\n"
   else
@@ -84,14 +83,14 @@ InstallWebServer() {
 	echo -n "Installing NGINX and Modules... "
 	apt-get -yqq install nginx > /dev/null 2>&1
 	service nginx start 
-	apt-get -yqq install php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php7.0-mcrypt php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-xsl php7.0-zip php7.0-mbstring php7.0-imap php7.0-mcrypt php7.0-snmp php7.0-xmlrpc php7.0-xsl > /dev/null 2>&1
-	#Need to check if soemthing is asked before suppress messages
-	apt-get -y install php7.0-fpm
-	sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.0/fpm/php.ini
-	sed -i "s/;date.timezone =/date.timezone=\"Europe\/Rome\"/" /etc/php/7.0/fpm/php.ini
+	apt-get -y install php7.1 php7.1-common php7.1-gd php7.1-mysql php7.1-imap php7.1-cli php7.1-cgi php-pear php7.1-mcrypt php7.1-curl php7.1-intl php7.1-pspell php7.1-recode php7.1-sqlite3 php7.1-tidy php7.1-xmlrpc php7.1-zip php7.1-mbstring php7.1-imap php7.1-mcrypt php7.1-snmp php7.1-xmlrpc php7.1-xsl php7.1-dev php7.1-bcmath php7.1-fpm php-redis
+    #Need to check if soemthing is asked before suppress messages
+	apt-get -y install php7.1-fpm
+	sed -i "s/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/" /etc/php/7.1/fpm/php.ini
+	sed -i "s/;date.timezone =/date.timezone=\"Europe\/Rome\"/" /etc/php/7.1/fpm/php.ini
 	echo -n "Installing needed Programs for PHP and NGINX... "
 	apt-get -yqq install mcrypt imagemagick memcached curl tidy snmp > /dev/null 2>&1
-	service php7.0-fpm reload
+	service php7.1-fpm reload
 	apt-get -yqq install fcgiwrap
   
   if [ $CFG_PHPMYADMIN == "yes" ]; then
@@ -115,7 +114,7 @@ InstallWebServer() {
 	echo -e "[${green}DONE${NC}]\n"
 	
 	echo -n "Install PHP Opcode Cache "	
-    apt-get -yqq install php7.0-opcache php-apcu > /dev/null 2>&1
+    apt-get -yqq install php7.1-opcache php-apcu > /dev/null 2>&1
 	echo -e "[${green}DONE${NC}]\n"
   
   fi
