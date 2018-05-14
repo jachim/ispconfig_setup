@@ -15,7 +15,8 @@ InstallWebServer() {
 	echo -e "[${green}DONE${NC}]\n"
 	echo -n "Installing PHP and Modules... "
 	# Need to check if soemthing is asked before suppress messages
-	apt-get -y install php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php7.0-mcrypt php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-zip php7.0-mbstring php7.0-imap php7.0-mcrypt php7.0-snmp php7.0-xmlrpc php7.0-xsl  > /dev/null 2>&1
+	#apt-get -y install php7.0 php7.0-common php7.0-gd php7.0-mysql php7.0-imap php7.0-cli php7.0-cgi php-pear php7.0-mcrypt php7.0-curl php7.0-intl php7.0-pspell php7.0-recode php7.0-sqlite3 php7.0-tidy php7.0-xmlrpc php7.0-zip php7.0-mbstring php7.0-imap php7.0-mcrypt php7.0-snmp php7.0-xmlrpc php7.0-xsl  > /dev/null 2>&1
+	apt-get -y install php7.1 php7.1-common php7.1-gd php7.1-mysql php7.1-imap php7.1-cli php7.1-cgi php-pear php7.1-mcrypt php7.1-curl php7.1-intl php7.1-pspell php7.1-recode php7.1-sqlite3 php7.1-tidy php7.1-xmlrpc php7.1-zip php7.1-mbstring php7.1-imap php7.1-mcrypt php7.1-snmp php7.1-xmlrpc php7.1-xsl php7.1-dev php7.1-bcmath php7.1-fpm php-redis
 	echo -e "[${green}DONE${NC}]\n"
 	echo -n "Installing PHP-FPM"
 	#Need to check if soemthing is asked before suppress messages
