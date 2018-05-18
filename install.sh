@@ -6,8 +6,8 @@ sed="sed"
 if [[ "$OSTYPE" == "darwin"* ]]; then
     sed="gsed"
 fi
-find . -type f -print0 | xargs -0 $sed -i 's/php7.0/php7.1/g'
-find . -type f -print0 | xargs -0 $sed -i 's/php\/7.0/php\/7.1/g'
+find ispconfig_setup-master -type f -print0 | xargs -0 $sed -i 's/php7.0/php7.1/g'
+find ispconfig_setup-master -type f -print0 | xargs -0 $sed -i 's/php\/7.0/php\/7.1/g'
 $sed -i "s/cd \/tmp/#cd \/tmp/g" ispconfig_setup-master/distros/debian9/install_ispconfig.sh
 search="cd ispconfig3_install\/install\/"
 $sed -i "s/$search/\.\.\/prepare_ispconfig\.sh\n$search\nls/g" ispconfig_setup-master/distros/debian9/install_ispconfig.sh
