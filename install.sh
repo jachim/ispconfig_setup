@@ -13,3 +13,5 @@ search="cd ispconfig3_install\/install\/"
 $sed -i "s/$search/\.\.\/prepare_ispconfig\.sh\n$search\nls/g" ispconfig_setup-master/distros/debian9/install_ispconfig.sh
 cd ispconfig_setup-master
 ./install.sh
+
+./post_install.sh
