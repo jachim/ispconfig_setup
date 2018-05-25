@@ -24,3 +24,4 @@ sudo service mongod start
 
 cp /etc/postfix/main.cf /etc/postfix/main.cf.bck
 sed -i 's/inet_protocols = all/inet_protocols = ipv4/g' /etc/postfix/main.cf
+/etc/init.d/postfix restart
