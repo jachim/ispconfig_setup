@@ -21,3 +21,6 @@ echo "deb http://repo.mongodb.org/apt/debian jessie/mongodb-org/3.6 main" | sudo
 sudo apt-get update
 sudo apt-get install -y mongodb-org
 sudo service mongod start
+
+cp /etc/postfix/main.cf /etc/postfix/main.cf.bck
+sed -i 's/inet_protocols = all/inet_protocols = ipv4/g' /etc/postfix/main.cf
