@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-apt-get install -y sudo make dirmngr
+apt-get install -y sudo make dirmngr patch
 rm /etc/localtime
 ln -s /usr/share/zoneinfo/Etc/GMT-2 /etc/localtime
 echo "set mouse=\"\"" > ~/.vimrc
